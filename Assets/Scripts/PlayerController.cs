@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Vector2 vel = rb2d.velocity;
-        vel.x = Input.GetAxis("horizontal") * speed;
+        vel.x = Input.GetAxis("Horizontal") * speed;
 
         UpdateGrounding();
 
@@ -36,8 +36,8 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateGrounding()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.1f);
-        Debug.DrawRay(transform.position, Vector2.down * 0.1f, Color.red);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector3.down, 0.5f);
+        Debug.DrawRay(transform.position, Vector3.down * 0.5f, Color.red);
         grounded = hit.collider != null;
     }
 }
