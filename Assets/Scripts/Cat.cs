@@ -38,14 +38,14 @@ public class Cat : MonoBehaviour
         {
             vel.x = velocity;
             mySpriteRenderer.flipX = false;
-            if (mySpriteRenderer.sprite == idle || mySpriteRenderer.sprite == spriteRight)
+            if (mySpriteRenderer.sprite == idle)
             {
 
-                mySpriteRenderer.sprite = spriteRight2;
+                mySpriteRenderer.sprite = spriteRight;
             }
             else
             {
-                mySpriteRenderer.sprite = spriteRight;
+                mySpriteRenderer.sprite = spriteRight2;
             }
         }
 
@@ -53,13 +53,13 @@ public class Cat : MonoBehaviour
         {
             vel.x = -velocity;
             mySpriteRenderer.flipX = true;
-            if (mySpriteRenderer.sprite == idle || mySpriteRenderer.sprite == spriteRight)
+            if (mySpriteRenderer.sprite == idle)
             {
-                mySpriteRenderer.sprite = spriteRight2;
+                mySpriteRenderer.sprite = spriteRight;
             }
             else
             {
-                mySpriteRenderer.sprite = spriteRight;
+                mySpriteRenderer.sprite = spriteRight2;
             }
         }
 
