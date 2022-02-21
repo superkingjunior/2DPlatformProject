@@ -12,6 +12,14 @@ public class Cat : MonoBehaviour
     public Sprite spriteRight;
     public Sprite spriteRight2;
     public Sprite idle;
+    public Sprite hurt;
+    public Sprite dead;
+
+    private float hurtTimer=5;
+
+    private float lives = 0;
+
+    private bool grounded = true;
 
     // Start is called before the first frame update
     void Start()
@@ -25,10 +33,12 @@ public class Cat : MonoBehaviour
     {
         Vector2 vel = myRb2D.velocity;
 
-        if (Input.GetKey(KeyCode.UpArrow))
+
+        if (Input.GetKeyDown(KeyCode.UpArrow) && grounded==true)
         {
-            vel.y = velocity;
+            vel.y = velocity*5;
             mySpriteRenderer.sprite = spriteUp;
+            grounded = false;
 
         }
 
@@ -38,14 +48,14 @@ public class Cat : MonoBehaviour
         {
             vel.x = velocity;
             mySpriteRenderer.flipX = false;
-            if (mySpriteRenderer.sprite == idle || mySpriteRenderer.sprite == spriteRight)
+            if (mySpriteRenderer.sprite == idle)
             {
 
-                mySpriteRenderer.sprite = spriteRight2;
+                mySpriteRenderer.sprite = spriteRight;
             }
             else
             {
-                mySpriteRenderer.sprite = spriteRight;
+                mySpriteRenderer.sprite = spriteRight2;
             }
         }
 
@@ -53,13 +63,13 @@ public class Cat : MonoBehaviour
         {
             vel.x = -velocity;
             mySpriteRenderer.flipX = true;
-            if (mySpriteRenderer.sprite == idle || mySpriteRenderer.sprite == spriteRight)
+            if (mySpriteRenderer.sprite == idle)
             {
-                mySpriteRenderer.sprite = spriteRight2;
+                mySpriteRenderer.sprite = spriteRight;
             }
             else
             {
-                mySpriteRenderer.sprite = spriteRight;
+                mySpriteRenderer.sprite = spriteRight2;
             }
         }
 
@@ -73,4 +83,32 @@ public class Cat : MonoBehaviour
         myRb2D.velocity = vel;
 
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Platform"))
+        {
+            grounded = true;
+        }
+        if (collision.gameObject.CompareTag("Dog"))
+        {
+            if (Input.GetKey(KeyCode.Space))
+            {
+                
+                Destroy(collision.gameObject);
+            }
+            else
+            {
+                lives--;
+                mySpriteRenderer.sprite = hurt;
+                if (lives <= 0)
+                {
+                    mySpriteRenderer.sprite = dead;
+                    Destroy(gameObject);
+                }
+                
+            }
+        }
+    }
+
 }
