@@ -19,7 +19,7 @@ public class Cat : MonoBehaviour
 
     public float lives = 9;
 
-    //private bool grounded = true;
+    private bool hit = false;
 
     // Start is called before the first frame update
     void Start()
@@ -32,47 +32,7 @@ public class Cat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-/*
-        if (Input.GetKeyDown(KeyCode.UpArrow) && grounded==true)
-        {
-            vel.y = velocity*5;
-            mySpriteRenderer.sprite = spriteUp;
-            grounded = false;
 
-        }
-
-
-
-        else if (Input.GetKey(KeyCode.RightArrow))
-        {
-            vel.x = velocity;
-            mySpriteRenderer.flipX = false;
-            
-        }
-
-        else if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            vel.x = -velocity;
-            mySpriteRenderer.flipX = true;
-            if (mySpriteRenderer.sprite == idle)
-            {
-                mySpriteRenderer.sprite = spriteRight;
-            }
-            else
-            {
-                mySpriteRenderer.sprite = spriteRight2;
-            }
-        }
-
-        else
-        {
-            vel.x = 0;
-            vel.y = 0;
-            mySpriteRenderer.sprite = idle;
-        }
-
-        myRb2D.velocity = vel;
-*/
 
     }
 
@@ -82,7 +42,7 @@ public class Cat : MonoBehaviour
         {
             Vector2 vel = myRb2D.velocity;
 
-            if (Mathf.Abs(vel.y) > 0)
+            if ((Mathf.Abs(vel.y) > 0) && (!hit))
             {
                 mySpriteRenderer.sprite = spriteUp;
             }
@@ -119,17 +79,28 @@ public class Cat : MonoBehaviour
         }
     }
 
+    private IEnumerator AnimateDeath()
+    {
+        mySpriteRenderer.sprite = dead;
+        yield return new WaitForSeconds(0.5f);
+    }
+
+    private IEnumerator AnimateFall()
+    {
+        mySpriteRenderer.sprite = hurt;
+        new WaitForSeconds(1.5f);
+        hit = false;
+        yield return new WaitForSeconds(1.0f);
+        
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        /*
-        if (collision.gameObject.CompareTag("Platform"))
-        {
-            grounded = true;
-        }
-        */
+
         if (collision.gameObject.CompareTag("Dog"))
         {
-            if (Input.GetKey(KeyCode.Space))
+            hit = true;
+            if (Input.GetKey(KeyCode.E))
             {
                 
                 Destroy(collision.gameObject);
@@ -137,17 +108,23 @@ public class Cat : MonoBehaviour
             else
             {
                 lives--;
-                mySpriteRenderer.sprite = hurt;
+
+                
+                 StopCoroutine(Animate());
+                 StartCoroutine(AnimateFall());
+
                 if (lives <= 0)
                 {
-                    mySpriteRenderer.sprite = dead;
-                    StopCoroutine(Animate());
-
+                    StopCoroutine(AnimateFall());
+                    StartCoroutine(AnimateDeath());
                     Destroy(gameObject);
                 }
+                StartCoroutine(Animate());
+                    
+             }
                 
-            }
-        }
-    }
-
+         }
+        
+     }
 }
+
