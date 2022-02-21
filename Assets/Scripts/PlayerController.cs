@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
+    public bool isFrozen;
+
     [SerializeField] float speed;
     [SerializeField] float jumpForce;
     [SerializeField] float gravScale;
@@ -32,6 +34,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isFrozen)
+        {
+            return;
+        }
         Vector2 vel = rb2d.velocity;
         vel.x = Input.GetAxis("Horizontal") * speed;
 

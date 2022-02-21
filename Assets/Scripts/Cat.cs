@@ -23,11 +23,14 @@ public class Cat : MonoBehaviour
 
     private bool run = false;
 
+    private PlayerController controller;
+
     // Start is called before the first frame update
     void Start()
     {
         myRb2D = GetComponent<Rigidbody2D>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
+        controller = GetComponent<PlayerController>();
         StartCoroutine(Animate());
     }
 
@@ -95,6 +98,7 @@ public class Cat : MonoBehaviour
         mySpriteRenderer.sprite = hurt;
         yield return new WaitForSeconds(1.0f);
         StartCoroutine(Animate());
+        controller.isFrozen = false;
         for (int i = 0; i < 15; i++)
         {
             if (i % 2 == 0)
@@ -128,6 +132,7 @@ public class Cat : MonoBehaviour
 
                 hit = true;
                 StopAllCoroutines();
+                controller.isFrozen = true;
                 
                 if (lives > 0)
                 {
