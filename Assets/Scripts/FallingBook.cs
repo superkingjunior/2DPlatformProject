@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class FallingBook : MonoBehaviour
 {
-    Rigidbody2D rb;
 
     public float speed = 1;
 
@@ -15,7 +14,7 @@ public class FallingBook : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb.gravityScale = 1;
+        
     }
 
     // Update is called once per frame
@@ -28,11 +27,16 @@ public class FallingBook : MonoBehaviour
         }
     }
 
-    public void OnHit()
+    public void OnCollisionEnter2D(Collision2D collision)
     {
-        // the Instatiate function creates a new GameObject copy (clone) from a Prefab at a specific location and orientation.
-        Instantiate(explosionPrefab, transform.position, transform.rotation);
-        //add once we do different health problems
-        Destroy(gameObject);
+        if (!collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        } else
+        {
+            Debug.Log("hit player minus a life");
+        }
+
+
     }
 }

@@ -17,7 +17,7 @@ public class Cat : MonoBehaviour
 
     private float hurtTimer=5;
 
-    public float lives = 9;
+    public int lives = 9;
 
     private bool hit = false;
 
@@ -136,6 +136,7 @@ public class Cat : MonoBehaviour
                 
                 if (lives > 0)
                 {
+                    //Lives.UpdateLives(lives);
                     StartCoroutine(AnimateFall());
                 }
                 if (lives <= 0)
