@@ -27,7 +27,6 @@ public class Dog : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
-        //Vector2 vel = myRb2D.velocity;
         if(mySpriteRenderer.sprite == spriteRight)
         {
             mySpriteRenderer.sprite = spriteRight2;
@@ -40,7 +39,6 @@ public class Dog : MonoBehaviour
         if (timer <= 0)
         {
             timer = reset;
-            //vel.x = -vel.x;
             
             if (mySpriteRenderer.flipX)
             {
@@ -61,9 +59,6 @@ public class Dog : MonoBehaviour
         {
             this.transform.Translate(Vector3.right * Time.deltaTime * speed);
         }
-
-
-        //myRb2D.velocity = vel;
 
     }
 }
