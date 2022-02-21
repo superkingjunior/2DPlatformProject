@@ -21,13 +21,18 @@ public class FallingBook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        lifeTime -= Time.deltaTime;
+        if (lifeTime <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void OnHit()
     {
         // the Instatiate function creates a new GameObject copy (clone) from a Prefab at a specific location and orientation.
         Instantiate(explosionPrefab, transform.position, transform.rotation);
+        //add once we do different health problems
         Destroy(gameObject);
     }
 }
