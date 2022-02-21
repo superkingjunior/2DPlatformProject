@@ -21,6 +21,8 @@ public class Cat : MonoBehaviour
 
     private bool hit = false;
 
+    private bool run = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,11 +40,13 @@ public class Cat : MonoBehaviour
 
     private IEnumerator Animate()
     {
-        while (true)
+        mySpriteRenderer.sprite = idle;
+        run = true;
+        while (!hit || run)
         {
             Vector2 vel = myRb2D.velocity;
 
-            if ((Mathf.Abs(vel.y) > 0) && (!hit))
+            if ((Mathf.Abs(vel.y) > 0))
             {
                 mySpriteRenderer.sprite = spriteUp;
             }
@@ -51,7 +55,7 @@ public class Cat : MonoBehaviour
                 mySpriteRenderer.flipX = false;
                 if (mySpriteRenderer.sprite == idle || mySpriteRenderer.sprite == spriteRight2)
                 {
-
+                    Debug.Log("Moving Right");
                     mySpriteRenderer.sprite = spriteRight;
                 }
                 else
@@ -83,23 +87,36 @@ public class Cat : MonoBehaviour
     {
         mySpriteRenderer.sprite = dead;
         yield return new WaitForSeconds(0.5f);
+        Destroy(gameObject);
     }
 
     private IEnumerator AnimateFall()
     {
         mySpriteRenderer.sprite = hurt;
-        new WaitForSeconds(1.5f);
-        hit = false;
         yield return new WaitForSeconds(1.0f);
-        
+        StartCoroutine(Animate());
+        for (int i = 0; i < 15; i++)
+        {
+            if (i % 2 == 0)
+            {
+                mySpriteRenderer.color = Color.red;
+            }
+            else
+            {
+                mySpriteRenderer.color = Color.white;
+            }
+            yield return new WaitForSeconds(0.1f);
+        }
+        mySpriteRenderer.color = Color.white;
+        hit = false;
+        run = true;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (collision.gameObject.CompareTag("Dog"))
+        if (collision.gameObject.CompareTag("Dog") && (!hit))
         {
-            hit = true;
             if (Input.GetKey(KeyCode.E))
             {
                 
@@ -109,17 +126,17 @@ public class Cat : MonoBehaviour
             {
                 lives--;
 
+                hit = true;
+                StopAllCoroutines();
                 
-                 StopCoroutine(Animate());
-                 StartCoroutine(AnimateFall());
-
+                if (lives > 0)
+                {
+                    StartCoroutine(AnimateFall());
+                }
                 if (lives <= 0)
                 {
-                    StopCoroutine(AnimateFall());
                     StartCoroutine(AnimateDeath());
-                    Destroy(gameObject);
                 }
-                StartCoroutine(Animate());
                     
              }
                 
