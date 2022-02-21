@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpForce;
 
     private Rigidbody2D rb2d;
+    private CapsuleCollider2D collider;
 
     private bool grounded = false;
 
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        collider = GetComponent<CapsuleCollider2D>();
     }
 
     // Update is called once per frame
@@ -26,7 +28,7 @@ public class PlayerController : MonoBehaviour
 
         UpdateGrounding();
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
             vel.y = jumpForce;
         }
@@ -36,8 +38,10 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateGrounding()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector3.down, 0.5f);
-        Debug.DrawRay(transform.position, Vector3.down * 0.5f, Color.red);
+        Vector3 origin = collider.transform.position;
+        origin.y -= collider.size.y/2;
+        RaycastHit2D hit = Physics2D.Raycast(origin, Vector3.down, 0.1f, 1 << LayerMask.NameToLayer("Platform"));
+        Debug.DrawRay(origin, Vector3.down * 0.1f, Color.red);
         grounded = hit.collider != null;
     }
 }

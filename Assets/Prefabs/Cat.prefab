@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 7359055948122234924}
   - component: {fileID: 8983357565605127397}
   - component: {fileID: 923569995921071381}
-  - component: {fileID: 923569995921071386}
+  - component: {fileID: 7156703303703016020}
+  - component: {fileID: 6030914001879614193}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Untagged
@@ -97,11 +98,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4a3fb0bd6d574715be2c8a4754ce3a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 7
   spriteUp: {fileID: 21300000, guid: b0db339c948664474862a124c67e7362, type: 3}
   spriteRight: {fileID: 21300000, guid: 5073a55aa19a54df78610e98efe33b94, type: 3}
   spriteRight2: {fileID: 21300000, guid: dbb288fe7c7eb40928c46df16a0183f4, type: 3}
   idle: {fileID: 21300000, guid: dbb288fe7c7eb40928c46df16a0183f4, type: 3}
+  hurt: {fileID: 0}
+  dead: {fileID: 0}
 --- !u!50 &923569995921071381
 Rigidbody2D:
   serializedVersion: 4
@@ -123,8 +125,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &923569995921071386
-CircleCollider2D:
+--- !u!70 &7156703303703016020
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -136,6 +138,20 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.043430686, y: -0.34523648}
-  serializedVersion: 2
-  m_Radius: 0.71912664
+  m_Offset: {x: 0.0035771132, y: 0.035770774}
+  m_Size: {x: 1.5295656, y: 2.3379843}
+  m_Direction: 0
+--- !u!114 &6030914001879614193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6238307325858935516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cebdceff3ec9274ca8c75a1fd587fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  jumpForce: 5
