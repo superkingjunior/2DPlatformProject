@@ -17,7 +17,7 @@ public class Cat : MonoBehaviour
 
     private float hurtTimer=5;
 
-    private float lives = 0;
+    public float lives = 9;
 
     //private bool grounded = true;
 
