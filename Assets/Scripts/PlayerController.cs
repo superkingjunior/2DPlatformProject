@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public bool isFrozen;
 
     [SerializeField] float speed;
-    [SerializeField] float jumpForce;
+    [SerializeField] float jumpSpeed;
     [SerializeField] float gravScale;
     [SerializeField] float mass;
 
@@ -50,17 +50,19 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && (grounded || climbing))
         {
-            vel.y = jumpForce;
+            //vel.y = jumpSpeed / (climbing ? 10 : 1);
+            vel.y = jumpSpeed;
         }
 
         rb2d.velocity = vel;
+        
     }
 
     private void UpdateGrounding()
     {
         Vector3 origin = capCollide.transform.position;
         origin.y -= capCollide.size.y/2;
-        RaycastHit2D hit = Physics2D.Raycast(origin, Vector3.down, 0.1f, 1 << LayerMask.NameToLayer("Platform"));
+        RaycastHit2D hit = Physics2D.Raycast(origin, Vector3.down, 0.1f);
         Debug.DrawRay(origin, Vector3.down * 0.1f, Color.red);
         grounded = hit.collider != null;
     }
@@ -70,7 +72,7 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("Climbable"))
         {
             climbing = true;
-            rb2d.gravityScale = 0;
+            rb2d.gravityScale = gravScale/10;
         }
     }
 

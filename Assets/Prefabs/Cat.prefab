@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 923569995921071381}
   - component: {fileID: 7156703303703016020}
   - component: {fileID: 6030914001879614193}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &7156703303703016020
 CapsuleCollider2D:
@@ -154,7 +154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cebdceff3ec9274ca8c75a1fd587fe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFrozen: 0
   speed: 5
-  jumpForce: 35
+  jumpSpeed: 0
   gravScale: 20
   mass: 1
