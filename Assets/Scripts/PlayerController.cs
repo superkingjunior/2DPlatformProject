@@ -43,15 +43,19 @@ public class PlayerController : MonoBehaviour
 
         if (climbing)
         {
-            vel.y = Input.GetAxis("Vertical") * speed;
+            float vertical = Input.GetAxis("Vertical") * speed;
+            if(vertical > vel.y)
+            {
+                vel.y = vertical;
+            }
         }
 
         UpdateGrounding();
 
         if (Input.GetKeyDown(KeyCode.Space) && (grounded || climbing))
         {
-            //vel.y = jumpSpeed / (climbing ? 10 : 1);
-            vel.y = jumpSpeed;
+            vel.y += jumpSpeed / (climbing ? 2.5f : 1);
+            //vel.y += jumpSpeed;
         }
 
         rb2d.velocity = vel;
@@ -72,7 +76,7 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("Climbable"))
         {
             climbing = true;
-            rb2d.gravityScale = gravScale/10;
+            rb2d.gravityScale = gravScale/5;
         }
     }
 
