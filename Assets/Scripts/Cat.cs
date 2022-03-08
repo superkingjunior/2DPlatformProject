@@ -118,9 +118,9 @@ public class Cat : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (collision.gameObject.CompareTag("Dog") && (!hit))
+        if ((collision.gameObject.CompareTag("Dog")|| collision.gameObject.CompareTag("FallingObject")) && (!hit))
         {
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKey(KeyCode.E) && collision.gameObject.CompareTag("Dog"))
             {
 
                 Dog dog = collision.gameObject.GetComponent<Dog>();

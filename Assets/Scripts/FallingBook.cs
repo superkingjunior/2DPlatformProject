@@ -32,10 +32,7 @@ public class FallingBook : MonoBehaviour
         if (!collision.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
-        } else
-        {
-            Debug.Log("hit player minus a life");
-        }
+        } 
 
 
     }
