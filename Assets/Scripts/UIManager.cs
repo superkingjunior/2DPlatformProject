@@ -17,14 +17,9 @@ public class UIManager : MonoBehaviour
         instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public static void updateLives(int currentLives)
     {
+        
         instance.livesChange(currentLives);
     }
 
