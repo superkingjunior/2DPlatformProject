@@ -15,7 +15,6 @@ public class Cat : MonoBehaviour
     public Sprite hurt;
     public Sprite dead;
 
-    private float hurtTimer=5;
 
     public float lives = 9;
 
@@ -123,8 +122,21 @@ public class Cat : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.E))
             {
+
+                Dog dog = collision.gameObject.GetComponent<Dog>();
+                dog.lives--;
+                dog.hit = true;
+                dog.StopAllCoroutines();
+                if(dog.lives > 0)
+                {
+                    StartCoroutine(dog.AnimateFall());
+                    dog.hit = false;
+                }
+                else
+                {
+                    StartCoroutine(dog.AnimateDeath());
+                }
                 
-                Destroy(collision.gameObject);
             }
             else
             {

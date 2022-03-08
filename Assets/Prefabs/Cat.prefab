@@ -156,6 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFrozen: 0
   speed: 5
-  jumpSpeed: 0
+  jumpSpeed: 40
   gravScale: 20
   mass: 1
+  launchForce: 15
