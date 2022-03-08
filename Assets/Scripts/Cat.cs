@@ -136,7 +136,7 @@ public class Cat : MonoBehaviour
                 
                 if (lives > 0)
                 {
-                    //Lives.UpdateLives(lives);
+                    UIManager.updateLives(lives);
                     StartCoroutine(AnimateFall());
                 }
                 if (lives <= 0)
