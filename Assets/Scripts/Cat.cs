@@ -58,7 +58,7 @@ public class Cat : MonoBehaviour
                 mySpriteRenderer.flipX = false;
                 if (mySpriteRenderer.sprite == idle || mySpriteRenderer.sprite == spriteRight2)
                 {
-                    Debug.Log("Moving Right");
+                    //Debug.Log("Moving Right");
                     mySpriteRenderer.sprite = spriteRight;
                 }
                 else
