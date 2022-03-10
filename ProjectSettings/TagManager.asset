@@ -8,6 +8,8 @@ TagManager:
   - Platform
   - Climbable
   - Launcher
+  - FallingObject
+  - Heart
   layers:
   - Default
   - TransparentFX

@@ -159,6 +159,14 @@ public class Cat : MonoBehaviour
              }
                 
          }
+        if(collision.gameObject.CompareTag("Heart") && lives<= 8)
+        {
+            lives++;
+            UIManager.updateLives(lives);
+            Destroy(collision.gameObject);
+        }
+
+        
         
      }
 
