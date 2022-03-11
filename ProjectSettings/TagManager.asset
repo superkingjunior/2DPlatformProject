@@ -10,6 +10,7 @@ TagManager:
   - Launcher
   - FallingObject
   - Water
+  - Heart
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Platform
   - Water
   - UI
-  -
+  - 
   - 
   - 
   - 
