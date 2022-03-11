@@ -11,13 +11,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpSpeed;
     [SerializeField] float gravScale;
     [SerializeField] float mass;
-    [SerializeField] float launchForce;
+    [SerializeField] float launchSpeed;
 
     private Rigidbody2D rb2d;
     private CapsuleCollider2D capCollide;
 
     private bool grounded;
     private bool climbing;
+    private bool launching;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +53,13 @@ public class PlayerController : MonoBehaviour
 
         UpdateGrounding();
 
+        if (launching)
+        {
+            vel.y = launchSpeed;
+            Debug.Log("LAUNCH!");
+            launching = false;
+        }
+
         if (Input.GetKeyDown(KeyCode.Space) && (grounded || climbing))
         {
             vel.y += jumpSpeed / (climbing ? 2.5f : 1);
@@ -60,14 +68,6 @@ public class PlayerController : MonoBehaviour
 
         rb2d.velocity = vel;
         
-    }
-
-    private void Launch()
-    {
-        //Vector2 vel = rb2d.velocity;
-        //vel.y = launchSpeed;
-        //rb2d.velocity = vel;
-        rb2d.AddForce(new Vector2(0, launchForce));
     }
 
     private void UpdateGrounding()
@@ -79,8 +79,7 @@ public class PlayerController : MonoBehaviour
         grounded = hit.collider != null;
         if (grounded && hit.collider.gameObject.CompareTag("Launcher"))
         {
-            Launch();
-            Debug.Log("LAUNCH!");
+            launching = true;
         }
     }
 
