@@ -702,6 +702,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BackgroundMusic
       objectReference: {fileID: 0}
+    - target: {fileID: 7762643976185803883, guid: 91802d65e2e9e324597531d9490cfa5d, type: 3}
+      propertyPath: m_TagString
+      value: Music
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91802d65e2e9e324597531d9490cfa5d, type: 3}
 --- !u!1001 &1731602856

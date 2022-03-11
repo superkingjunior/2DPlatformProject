@@ -11,6 +11,7 @@ TagManager:
   - FallingObject
   - Water
   - Heart
+  - Music
   layers:
   - Default
   - TransparentFX
