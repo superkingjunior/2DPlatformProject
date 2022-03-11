@@ -148,7 +148,7 @@ public class Cat : MonoBehaviour
                 
                 if (lives > 0)
                 {
-                    UIManager.updateLives(lives);
+                    UIManager.UpdateLives(lives);
                     StartCoroutine(AnimateFall());
                 }
                 if (lives <= 0)
@@ -162,7 +162,7 @@ public class Cat : MonoBehaviour
         if(collision.gameObject.CompareTag("Heart") && lives<= 8)
         {
             lives++;
-            UIManager.updateLives(lives);
+            UIManager.UpdateLives(lives);
             Destroy(collision.gameObject);
         }
 

@@ -17,14 +17,14 @@ public class UIManager : MonoBehaviour
         instance = this;
     }
 
-    public static void updateLives(int currentLives)
+    public static void UpdateLives(int currentLives)
     {
-        
-        instance.livesChange(currentLives);
+        instance.LivesChange(currentLives);
     }
 
-    private void livesChange(int lives)
-    {
-        _livesImg.sprite = _livesSprites[lives];
+    private void LivesChange(int lives)
+    { 
+        if( _livesSprites.Length > lives)
+            _livesImg.sprite = _livesSprites[lives];
     }
 }
