@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -89,6 +90,11 @@ public class PlayerController : MonoBehaviour
         {
             climbing = true;
             rb2d.gravityScale = gravScale/5;
+        }
+        if (collision.CompareTag("Water"))
+        {
+            Scene current = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(current.name);
         }
     }
 

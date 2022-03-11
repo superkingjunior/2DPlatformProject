@@ -9,7 +9,7 @@ TagManager:
   - Climbable
   - Launcher
   - FallingObject
-  - Heart
+  - Water
   layers:
   - Default
   - TransparentFX
