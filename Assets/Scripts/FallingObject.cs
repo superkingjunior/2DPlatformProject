@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class FallingObject : MonoBehaviour
 {
-    public float spawnWidth = 1;
-    public float spawnRate = 1;
-    public GameObject fallingPrefab;
 
-    private float lastSpawnTime = 0;
+    public float speed = 1;
+
+    public float lifeTime = 4;
+  
+    public GameObject explosionPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -19,13 +20,20 @@ public class FallingObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (lastSpawnTime + 1 / spawnRate < Time.time)
+        lifeTime -= Time.deltaTime;
+        if (lifeTime <= 0)
         {
-            lastSpawnTime = Time.time;
-            Vector3 spawnPosition = transform.position;
-            spawnPosition += new Vector3(Random.Range(-spawnWidth, spawnWidth), 0, 0);
-            // the Instatiate function creates a new GameObject copy (clone) from a Prefab at a specific location and orientation.
-            Instantiate(fallingPrefab, spawnPosition, Quaternion.identity);
+            Destroy(gameObject);
         }
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        } 
+
+
     }
 }

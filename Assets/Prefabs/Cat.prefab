@@ -159,4 +159,4 @@ MonoBehaviour:
   jumpSpeed: 40
   gravScale: 20
   mass: 1
-  launchForce: 15
+  launchSpeed: 50
