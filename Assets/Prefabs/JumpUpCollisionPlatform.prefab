@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 1765620315164471790}
   - component: {fileID: 1765620315164471789}
   - component: {fileID: 1765620315164471785}
+  - component: {fileID: 1328102692}
   m_Layer: 3
-  m_Name: OneWayCollisionPlatform
+  m_Name: JumpUpCollisionPlatform
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,7 +41,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1765620315164471788}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -129,3 +130,15 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!114 &1328102692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765620315164471788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1722b07eb9b534a7892740247763c68d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
