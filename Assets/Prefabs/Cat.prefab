@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8458731684714538552}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &335782274
 Camera:
@@ -116,6 +116,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9195923188392904975}
+  - {fileID: 4583968043043631477}
   - {fileID: 335782275}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -317,4 +318,74 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7902004224092982037, guid: 5b6cd2854f94ab741a5743141ef87840, type: 3}
   m_PrefabInstance: {fileID: 1312787829576499738}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5923368602570422880
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8458731684714538552}
+    m_Modifications:
+    - target: {fileID: 90078827804261755, guid: 5b6cd2854f94ab741a5743141ef87840, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1528493205835966757, guid: 5b6cd2854f94ab741a5743141ef87840, type: 3}
+      propertyPath: m_Name
+      value: Claw marks (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1528493205835966757, guid: 5b6cd2854f94ab741a5743141ef87840, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7902004224092982037, guid: 5b6cd2854f94ab741a5743141ef87840, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7902004224092982037, guid: 5b6cd2854f94ab741a5743141ef87840, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7902004224092982037, guid: 5b6cd2854f94ab741a5743141ef87840, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7902004224092982037, guid: 5b6cd2854f94ab741a5743141ef87840, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7902004224092982037, guid: 5b6cd2854f94ab741a5743141ef87840, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7902004224092982037, guid: 5b6cd2854f94ab741a5743141ef87840, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7902004224092982037, guid: 5b6cd2854f94ab741a5743141ef87840, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7902004224092982037, guid: 5b6cd2854f94ab741a5743141ef87840, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7902004224092982037, guid: 5b6cd2854f94ab741a5743141ef87840, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7902004224092982037, guid: 5b6cd2854f94ab741a5743141ef87840, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7902004224092982037, guid: 5b6cd2854f94ab741a5743141ef87840, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5b6cd2854f94ab741a5743141ef87840, type: 3}
+--- !u!4 &4583968043043631477 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7902004224092982037, guid: 5b6cd2854f94ab741a5743141ef87840, type: 3}
+  m_PrefabInstance: {fileID: 5923368602570422880}
   m_PrefabAsset: {fileID: 0}
