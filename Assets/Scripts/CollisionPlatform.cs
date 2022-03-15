@@ -18,7 +18,7 @@ public class CollisionPlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetAxis("Vertical") < 0)
         {
 
             StartCoroutine(JumpDown());
