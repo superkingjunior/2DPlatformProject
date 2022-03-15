@@ -104,6 +104,13 @@ MonoBehaviour:
   idle: {fileID: 21300000, guid: dbb288fe7c7eb40928c46df16a0183f4, type: 3}
   hurt: {fileID: 21300000, guid: 66e381d954ee247e4bfeb6642922b96a, type: 3}
   dead: {fileID: 21300000, guid: 99da0230377cd4fe49f8739a60c020f1, type: 3}
+  cooldownTime: 2
+  attack:
+  - {fileID: 21300000, guid: 68fcb6f424f67064687ed1396bf46752, type: 3}
+  - {fileID: 21300000, guid: 5c275bb116d9ee74eac63c5a862ab017, type: 3}
+  - {fileID: 21300000, guid: 0266563d55f4582438f489798b647d6b, type: 3}
+  - {fileID: 21300000, guid: 8473ee47751e23641bcbf080b27344da, type: 3}
+  - {fileID: 21300000, guid: a25a0227e6878ab439e7c5f29d9aa3ad, type: 3}
   lives: 9
 --- !u!50 &923569995921071381
 Rigidbody2D:

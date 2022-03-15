@@ -108,6 +108,7 @@ public class Dog : MonoBehaviour
         mySpriteRenderer.sprite = dead;
         yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
+        //StopAllCoroutines();
     }
 
 

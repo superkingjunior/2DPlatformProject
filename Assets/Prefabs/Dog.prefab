@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4542294146163206628}
   - component: {fileID: 4542294146163206629}
-  - component: {fileID: 4542294146163206626}
   - component: {fileID: 4542294146163206627}
   - component: {fileID: 4542294146163206624}
-  m_Layer: 0
+  - component: {fileID: 5264269679117215401}
+  m_Layer: 6
   m_Name: Dog
   m_TagString: Dog
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4542294146163206625}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.0060072, y: -1.6301792, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -85,22 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &4542294146163206626
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4542294146163206625}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.109405756, y: -0.40115404}
-  serializedVersion: 2
-  m_Radius: 0.63812804
 --- !u!50 &4542294146163206627
 Rigidbody2D:
   serializedVersion: 4
@@ -142,3 +126,20 @@ MonoBehaviour:
   timer: 1
   speed: 5
   lives: 2
+  hit: 0
+--- !u!70 &5264269679117215401
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4542294146163206625}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.107396245, y: 0.024688005}
+  m_Size: {x: 1.4349148, y: 2.3372583}
+  m_Direction: 0
