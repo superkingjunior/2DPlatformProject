@@ -43,7 +43,7 @@ public class Cat : MonoBehaviour
     {
         RaycastHit2D attack = Physics2D.Raycast(transform.position, Vector2.right, 2f, 1 << LayerMask.NameToLayer("Dog"));
         //Debug.DrawRay(transform.position, Vector2.right * 1f, Color.red);
-        if (Input.GetKeyDown(KeyCode.E) && cooldown > cooldownTime)
+        if (Input.GetKeyDown(KeyCode.E) && cooldown > cooldownTime && !hit)
         {
             cooldown = 0f;
             attacking = true;
