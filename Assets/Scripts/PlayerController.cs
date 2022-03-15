@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
         if (launching)
         {
             vel.y = launchSpeed;
-            Debug.Log("LAUNCH!");
+            //Debug.Log("LAUNCH!");
             launching = false;
         }
 
