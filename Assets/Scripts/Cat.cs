@@ -41,7 +41,7 @@ public class Cat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RaycastHit2D attack = Physics2D.Raycast(transform.position, Vector2.right, 1f, 1 << LayerMask.NameToLayer("Dog"));
+        RaycastHit2D attack = Physics2D.Raycast(transform.position, Vector2.right, 2f, 1 << LayerMask.NameToLayer("Dog"));
         //Debug.DrawRay(transform.position, Vector2.right * 1f, Color.red);
         if (Input.GetKeyDown(KeyCode.E) && cooldown > cooldownTime)
         {
@@ -80,11 +80,13 @@ public class Cat : MonoBehaviour
         {
             if(attacking)
             {
-                foreach(Sprite attackFrame in attack){
+                transform.GetChild(0).gameObject.SetActive(true);
+                foreach (Sprite attackFrame in attack){
                     mySpriteRenderer.sprite = attackFrame;
                     yield return new WaitForSeconds(0.05f);
                 }
                 attacking = false;
+                transform.GetChild(0).gameObject.SetActive(false);
             }
             Vector2 vel = myRb2D.velocity;
 
