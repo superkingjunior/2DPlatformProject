@@ -14,11 +14,16 @@ public class Cat : MonoBehaviour
     public Sprite idle;
     public Sprite hurt;
     public Sprite dead;
+    public float cooldownTime;
 
+    public Sprite[] attack;
+    private bool attacking = false;
 
     public int lives = 9;
 
     private bool hit = false;
+
+    private float cooldown = 2f;
 
     private bool run = false;
 
@@ -36,7 +41,34 @@ public class Cat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        RaycastHit2D attack = Physics2D.Raycast(transform.position, Vector2.right, 2f, 1 << LayerMask.NameToLayer("Dog"));
+        //Debug.DrawRay(transform.position, Vector2.right * 1f, Color.red);
+        if (Input.GetKeyDown(KeyCode.E) && cooldown > cooldownTime)
+        {
+            cooldown = 0f;
+            attacking = true;
+            if(attack.collider != null)
+            {
+                Dog dog = attack.collider.gameObject.GetComponent<Dog>();
+                if (!dog.hit)
+                {
+                    dog.lives--;
+                    dog.hit = true;
+                    dog.StopAllCoroutines();
+                    if (dog.lives > 0 && dog != null)
+                    {
+                        StartCoroutine(dog.AnimateFall());
+                        dog.hit = false;
+                    }
+                    else if (dog != null)
+                    {
+                        //dog.StopAllCoroutines();
+                        StartCoroutine(dog.AnimateDeath());
+                    }
+                }
+            }
+        }
+        cooldown += Time.deltaTime;
 
     }
 
@@ -46,6 +78,16 @@ public class Cat : MonoBehaviour
         run = true;
         while (!hit || run)
         {
+            if(attacking)
+            {
+                transform.GetChild(0).gameObject.SetActive(true);
+                foreach (Sprite attackFrame in attack){
+                    mySpriteRenderer.sprite = attackFrame;
+                    yield return new WaitForSeconds(0.05f);
+                }
+                attacking = false;
+                transform.GetChild(0).gameObject.SetActive(false);
+            }
             Vector2 vel = myRb2D.velocity;
 
             if ((Mathf.Abs(vel.y) > 0))
@@ -120,43 +162,22 @@ public class Cat : MonoBehaviour
 
         if ((collision.gameObject.CompareTag("Dog")|| collision.gameObject.CompareTag("FallingObject")) && (!hit))
         {
-            if (Input.GetKey(KeyCode.E) && collision.gameObject.CompareTag("Dog"))
-            {
+            lives--;
 
-                Dog dog = collision.gameObject.GetComponent<Dog>();
-                dog.lives--;
-                dog.hit = true;
-                dog.StopAllCoroutines();
-                if(dog.lives > 0)
-                {
-                    StartCoroutine(dog.AnimateFall());
-                    dog.hit = false;
-                }
-                else
-                {
-                    StartCoroutine(dog.AnimateDeath());
-                }
+            hit = true;
+            StopAllCoroutines();
+            controller.isFrozen = true;
                 
+            if (lives > 0)
+            {
+                UIManager.UpdateLives(lives);
+                StartCoroutine(AnimateFall());
             }
-            else
+            if (lives <= 0)
             {
-                lives--;
-
-                hit = true;
-                StopAllCoroutines();
-                controller.isFrozen = true;
+                StartCoroutine(AnimateDeath());
+            }
                 
-                if (lives > 0)
-                {
-                    UIManager.UpdateLives(lives);
-                    StartCoroutine(AnimateFall());
-                }
-                if (lives <= 0)
-                {
-                    StartCoroutine(AnimateDeath());
-                }
-                    
-             }
                 
          }
         if(collision.gameObject.CompareTag("Heart") && lives<= 8)
