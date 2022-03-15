@@ -41,9 +41,10 @@ public class Cat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RaycastHit2D attack = Physics2D.Raycast(transform.position, Vector2.right, 2f, 1 << LayerMask.NameToLayer("Dog"));
+        Vector2 direction = (mySpriteRenderer.flipX) ? Vector2.left : Vector2.right;
+        RaycastHit2D attack = Physics2D.Raycast(transform.position, direction, 2f, 1 << LayerMask.NameToLayer("Dog"));
         //Debug.DrawRay(transform.position, Vector2.right * 1f, Color.red);
-        if (Input.GetKeyDown(KeyCode.E) && cooldown > cooldownTime)
+        if (Input.GetKeyDown(KeyCode.E) && cooldown > cooldownTime && !hit)
         {
             cooldown = 0f;
             attacking = true;
@@ -80,13 +81,28 @@ public class Cat : MonoBehaviour
         {
             if(attacking)
             {
-                transform.GetChild(0).gameObject.SetActive(true);
+                
+                if (mySpriteRenderer.flipX)
+                {
+                    transform.GetChild(1).gameObject.SetActive(true);
+                }
+                else
+                {
+                    transform.GetChild(0).gameObject.SetActive(true);
+                }
                 foreach (Sprite attackFrame in attack){
                     mySpriteRenderer.sprite = attackFrame;
                     yield return new WaitForSeconds(0.05f);
                 }
                 attacking = false;
-                transform.GetChild(0).gameObject.SetActive(false);
+                if (mySpriteRenderer.flipX)
+                {
+                    transform.GetChild(1).gameObject.SetActive(false);
+                }
+                else
+                {
+                    transform.GetChild(0).gameObject.SetActive(false);
+                }
             }
             Vector2 vel = myRb2D.velocity;
 
@@ -97,6 +113,7 @@ public class Cat : MonoBehaviour
             else if (vel.x > 0)
             {
                 mySpriteRenderer.flipX = false;
+                transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipX = false;
                 if (mySpriteRenderer.sprite == idle || mySpriteRenderer.sprite == spriteRight2)
                 {
                     //Debug.Log("Moving Right");
@@ -110,6 +127,7 @@ public class Cat : MonoBehaviour
             else if (vel.x < 0)
             {
                 mySpriteRenderer.flipX = true;
+                transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipX = true;
                 if (mySpriteRenderer.sprite == idle || mySpriteRenderer.sprite == spriteRight2)
                 {
                     mySpriteRenderer.sprite = spriteRight;
