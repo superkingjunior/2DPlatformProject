@@ -6,23 +6,16 @@ using UnityEngine.SceneManagement;
 public class MainMenuController : MonoBehaviour
 {
     public GameObject mainMenu;
-    public GameObject optionsMenu;
 
     public void StartGame()
     {
         SceneManager.LoadScene("Juliet");
     }
 
-    public void Options()
+    public void Tutorial()
     {
         mainMenu.SetActive(false);
-        optionsMenu.SetActive(true);
-    }
-
-    public void Back()
-    {
-        mainMenu.SetActive(true);
-        optionsMenu.SetActive(false);
+        SceneManager.LoadScene("Tutorial");
     }
 
 
