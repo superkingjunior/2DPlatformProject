@@ -124,7 +124,7 @@ MonoBehaviour:
   hurt: {fileID: 21300000, guid: 384ad2792105b441b8ca3b842303b9af, type: 3}
   dead: {fileID: 21300000, guid: dcc52e8d9d1c840fcaf03e994bd080da, type: 3}
   timer: 1
-  speed: 5
+  speed: 3
   lives: 2
   hit: 0
 --- !u!70 &5264269679117215401

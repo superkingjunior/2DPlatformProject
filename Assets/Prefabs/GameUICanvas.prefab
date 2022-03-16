@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 566, y: 6}
-  m_SizeDelta: {x: -45.3129, y: 0}
+  m_AnchoredPosition: {x: -6.828225, y: 3}
+  m_SizeDelta: {x: -13.65645, y: -6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2378700327472485029
 CanvasRenderer:
@@ -918,6 +918,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3083238772715637712}
+  - component: {fileID: 3787246744819217866}
+  - component: {fileID: 4365787694371022749}
   m_Layer: 5
   m_Name: ControlsPanel
   m_TagString: Untagged
@@ -942,9 +944,47 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -162, y: 88}
-  m_SizeDelta: {x: 203.4433, y: 83.0421}
+  m_AnchoredPosition: {x: 399.55, y: -230.4}
+  m_SizeDelta: {x: 164.8962, y: 70.1931}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &3787246744819217866
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2533879730325626245}
+  m_CullTransparentMesh: 1
+--- !u!114 &4365787694371022749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2533879730325626245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1001 &4359044336054178626
 PrefabInstance:
   m_ObjectHideFlags: 0
