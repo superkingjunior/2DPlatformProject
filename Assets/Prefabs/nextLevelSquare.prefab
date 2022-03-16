@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5247368956442798195}
   - component: {fileID: 5247368956442798194}
   - component: {fileID: 5247368956442798198}
+  - component: {fileID: 757897177302819799}
   m_Layer: 0
   m_Name: nextLevelSquare
   m_TagString: Untagged
@@ -123,6 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 008e151a419914208addbf9c854be4d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextLevel: 
 --- !u!50 &5247368956442798198
 Rigidbody2D:
   serializedVersion: 4
@@ -144,3 +146,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &757897177302819799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5247368956442798205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 008e151a419914208addbf9c854be4d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextLevel: 
