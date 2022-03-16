@@ -27,7 +27,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 18.65, y: -0.66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1120821675496496113}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -82,3 +83,65 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &6622370732826490447
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3745776512578696417}
+    m_Modifications:
+    - target: {fileID: 2203983724558733873, guid: 4051453a7bff72d408865442ea42dd61, type: 3}
+      propertyPath: m_Name
+      value: WaterSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082839689353899454, guid: 4051453a7bff72d408865442ea42dd61, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082839689353899454, guid: 4051453a7bff72d408865442ea42dd61, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082839689353899454, guid: 4051453a7bff72d408865442ea42dd61, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082839689353899454, guid: 4051453a7bff72d408865442ea42dd61, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -13.844421
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082839689353899454, guid: 4051453a7bff72d408865442ea42dd61, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082839689353899454, guid: 4051453a7bff72d408865442ea42dd61, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082839689353899454, guid: 4051453a7bff72d408865442ea42dd61, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082839689353899454, guid: 4051453a7bff72d408865442ea42dd61, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082839689353899454, guid: 4051453a7bff72d408865442ea42dd61, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082839689353899454, guid: 4051453a7bff72d408865442ea42dd61, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082839689353899454, guid: 4051453a7bff72d408865442ea42dd61, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4051453a7bff72d408865442ea42dd61, type: 3}
+--- !u!4 &1120821675496496113 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6082839689353899454, guid: 4051453a7bff72d408865442ea42dd61, type: 3}
+  m_PrefabInstance: {fileID: 6622370732826490447}
+  m_PrefabAsset: {fileID: 0}
