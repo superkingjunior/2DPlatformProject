@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFrozen: 0
-  speed: 7
+  speed: 8
   jumpSpeed: 50
   gravScale: 20
   mass: 1
