@@ -14,7 +14,7 @@ public class Cooldown : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(transform.childCount);
+        //Debug.Log(transform.childCount);
         image = transform.GetChild(0).GetComponent<Image>();
         transformImage = transform.GetChild(0).GetComponent<RectTransform>();
     }
