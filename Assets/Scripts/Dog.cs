@@ -99,8 +99,11 @@ public class Dog : MonoBehaviour
         }
         mySpriteRenderer.color = Color.white;
 
+    }
 
-
+    public void SetColor(Color color)
+    {
+        mySpriteRenderer.color = color;
     }
 
     public IEnumerator AnimateDeath()

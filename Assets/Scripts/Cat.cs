@@ -56,6 +56,7 @@ public class Cat : MonoBehaviour
                     dog.lives--;
                     dog.hit = true;
                     dog.StopAllCoroutines();
+                    dog.SetColor(Color.white);
                     if (dog.lives > 0 && dog != null)
                     {
                         StartCoroutine(dog.AnimateFall());
