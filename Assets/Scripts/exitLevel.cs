@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class exitLevel : MonoBehaviour
+public class ExitLevel : MonoBehaviour
 {
-    string[] Scenes = { "Collin","BedroomLevel", "ClosetLevel", "KitchenLevel", "LivingroomLevel" };
+    [SerializeField] string nextLevel;
+
     private int index = 0;
     // Start is called before the first frame update
     void Start()
@@ -16,19 +17,14 @@ public class exitLevel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-
-
         if (other.CompareTag("Player"))
         {
-            if (Scenes.Length - 1 >= index)
-            {
-                SceneManager.LoadScene(Scenes[index]);
-            }
+            SceneManager.LoadScene(nextLevel);
 
             index++;
 

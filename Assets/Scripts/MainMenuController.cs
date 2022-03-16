@@ -9,7 +9,7 @@ public class MainMenuController : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Juliet");
+        SceneManager.LoadScene("BedroomLevel");
     }
 
     public void Tutorial()
