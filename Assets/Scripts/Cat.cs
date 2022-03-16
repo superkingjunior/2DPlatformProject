@@ -71,6 +71,7 @@ public class Cat : MonoBehaviour
             }
         }
         cooldown += Time.deltaTime;
+        UIManager.UpdatePercentCooldown(cooldown, cooldownTime);
 
     }
 
@@ -199,16 +200,17 @@ public class Cat : MonoBehaviour
                 
                 
          }
-        if(collision.gameObject.CompareTag("Heart") && lives<= 8)
+     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Heart") && lives < 9)
         {
             lives++;
             UIManager.UpdateLives(lives);
             Destroy(collision.gameObject);
         }
-
-        
-        
-     }
+    }
 
 }
 

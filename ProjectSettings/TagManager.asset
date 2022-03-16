@@ -12,6 +12,7 @@ TagManager:
   - Water
   - Heart
   - Music
+  - UI
   layers:
   - Default
   - TransparentFX
