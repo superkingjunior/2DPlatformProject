@@ -210,6 +210,11 @@ public class Cat : MonoBehaviour
             UIManager.UpdateLives(lives);
             Destroy(collision.gameObject);
         }
+        if (collision.gameObject.CompareTag("Water") && lives < 9)
+        {
+            lives--;
+            UIManager.UpdateLives(lives);
+        }
     }
 
 }
