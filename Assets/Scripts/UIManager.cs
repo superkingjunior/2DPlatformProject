@@ -21,7 +21,7 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        transform.GetChild(4).GetComponent<Cooldown>().percentage = percentage;
+        transform.GetChild(3).GetComponent<Cooldown>().percentage = percentage;
     }
 
     public static void UpdateLives(int currentLives)
