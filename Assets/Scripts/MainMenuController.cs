@@ -15,6 +15,8 @@ public class MainMenuController : MonoBehaviour
         {
             Destroy(objs);
         }
+
+        UIManager.livesUI = 9;
     }
 
 
