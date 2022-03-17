@@ -176,7 +176,7 @@ public class Cat : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if ((collision.gameObject.CompareTag("Dog")|| collision.gameObject.CompareTag("FallingObject") || collision.gameObject.CompareTag("Water")) && (!hit))
+        if (((collision.gameObject.CompareTag("Dog") && !collision.gameObject.GetComponent<Dog>().hit) || collision.gameObject.CompareTag("FallingObject") || collision.gameObject.CompareTag("Water")) && (!hit))
         {
             UIManager.livesUI--;
 
