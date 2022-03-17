@@ -23,7 +23,7 @@ public class MainMenuController : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("BedroomLevel");
+        SceneManager.LoadScene("BathroomLevel");
     }
 
     public void Tutorial()

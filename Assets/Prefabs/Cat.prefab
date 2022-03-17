@@ -211,7 +211,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 20
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -248,10 +248,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFrozen: 0
   speed: 8
-  jumpSpeed: 50
-  gravScale: 20
+  jumpSpeed: 25
+  gravScale: 5
   mass: 1
-  launchSpeed: 50
+  launchSpeed: 30
 --- !u!1001 &1312787829576499738
 PrefabInstance:
   m_ObjectHideFlags: 0

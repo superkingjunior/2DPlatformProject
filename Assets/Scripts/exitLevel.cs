@@ -31,48 +31,48 @@ public class exitLevel : MonoBehaviour
                 SceneManager.LoadScene("MainMenu");
             }
 
-            if (scene.name == "BedroomLevel")
-            {
-                SceneManager.LoadScene("BathroomLevel");
-            }
-
             if (scene.name == "BathroomLevel")
-            {
-                SceneManager.LoadScene("BoilerRoomLevel");
-            }
-
-            if (scene.name == "BoilerRoomLevel")
             {
                 SceneManager.LoadScene("ClosetLevel");
             }
 
             if (scene.name == "ClosetLevel")
             {
+                SceneManager.LoadScene("BedroomLevel");
+            }
+
+            if (scene.name == "BedroomLevel")
+            {
+                SceneManager.LoadScene("BoilerRoomLevel");
+            }
+
+            if (scene.name == "BoilerRoomLevel")
+            {
                 SceneManager.LoadScene("PlayroomLevel");
             }
 
             if (scene.name == "PlayroomLevel")
             {
-                SceneManager.LoadScene("KitchenLevel");
-            }
-
-
-            if (scene.name == "KitchenLevel")
-            {
                 SceneManager.LoadScene("LivingroomLevel");
             }
 
-            if (scene.name == "LivingroomLevel")
-            {
-                SceneManager.LoadScene("LoftLevel");
-            }
 
-            if (scene.name == "LoftLevel")
+            if (scene.name == "LivingroomLevel")
             {
                 SceneManager.LoadScene("DiningroomLevel");
             }
 
             if (scene.name == "DiningroomLevel")
+            {
+                SceneManager.LoadScene("KitchenLevel");
+            }
+
+            if (scene.name == "KitchenLevel")
+            {
+                SceneManager.LoadScene("LoftLevel");
+            }
+
+            if (scene.name == "LoftLevel")
             {
                 SceneManager.LoadScene("OutsideLevel");
             }
