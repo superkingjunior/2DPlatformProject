@@ -196,6 +196,7 @@ public class Cat : MonoBehaviour
             }
             if (UIManager.livesUI <= 0)
             {
+                UIManager.UpdateLives(UIManager.livesUI);
                 StartCoroutine(AnimateDeath());
             }
                 

@@ -17,21 +17,25 @@ public class UIManager : MonoBehaviour
 
     public static int livesUI = 9;
 
+    
+
     void Awake()
     {
-        instance = this;
 
-        GameObject[] objs = GameObject.FindGameObjectsWithTag("UI");
-
-
-        if ((objs.Length > 1)&& (objs!=null))
+        if ((instance != null) && (instance != this))
         {
-            Destroy(instance.gameObject);
+            Destroy(this.gameObject);
         }
-
-
-
-        DontDestroyOnLoad(instance.gameObject);
+        else
+        {
+            instance = this;
+            if (livesUI > 0)
+            {
+                _livesImg.sprite = _livesSprites[livesUI - 1];
+            }
+            
+        }
+        
 
     }
 
@@ -62,14 +66,15 @@ public class UIManager : MonoBehaviour
     }
 
     private void LivesChange(int lives)
-    { 
-        if( _livesSprites.Length > lives - 1)
-            _livesImg.sprite = _livesSprites[lives - 1];
-        if(lives<= 0)
+    {
+        if (lives <= 0)
         {
             Debug.Log("LOSE");
             Lose();
         }
+        else if ( _livesSprites.Length > lives - 1)
+            _livesImg.sprite = _livesSprites[lives - 1];
+        
     }
 
     private void Lose()

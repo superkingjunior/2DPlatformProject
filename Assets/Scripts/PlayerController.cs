@@ -93,8 +93,16 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.CompareTag("Water"))
         {
-            Scene current = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(current.name);
+            if (UIManager.livesUI <= 0)
+            {
+                SceneManager.LoadScene("GameOver");
+            }
+            else
+            {
+                Scene current = SceneManager.GetActiveScene();
+                SceneManager.LoadScene(current.name);
+            }
+            
         }
     }
 
