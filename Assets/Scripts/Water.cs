@@ -23,6 +23,6 @@ public class Water : MonoBehaviour
     {
         timer += Time.deltaTime;
         float scale = juice.Evaluate(timer);
-        rb2d.velocity = new Vector2(0, scale*speed);
+        rb2d.velocity = new Vector2(0, (scale < 0) ? scale : scale * speed);
     }
 }
