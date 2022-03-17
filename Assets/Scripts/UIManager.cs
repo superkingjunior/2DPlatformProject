@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -45,5 +46,15 @@ public class UIManager : MonoBehaviour
     { 
         if( _livesSprites.Length > lives - 1)
             _livesImg.sprite = _livesSprites[lives - 1];
+        if(lives<= 0)
+        {
+            Debug.Log("LOSE");
+            Lose();
+        }
+    }
+
+    private void Lose()
+    {
+        SceneManager.LoadScene("GameOver");
     }
 }
