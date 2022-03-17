@@ -7,6 +7,18 @@ public class MainMenuController : MonoBehaviour
 {
     public GameObject mainMenu;
 
+
+    private void Start()
+    {
+        GameObject objs = GameObject.FindGameObjectWithTag("UI");
+        if (objs != null)
+        {
+            Destroy(objs);
+        }
+    }
+
+
+
     public void StartGame()
     {
         SceneManager.LoadScene("BedroomLevel");
