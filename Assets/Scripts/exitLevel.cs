@@ -76,6 +76,11 @@ public class exitLevel : MonoBehaviour
             {
                 SceneManager.LoadScene("Rooftop2Level");
             }
+
+            if (scene.name == "Rooftop2Level")
+            {
+                SceneManager.LoadScene("YouWin");
+            }
         }
 
 

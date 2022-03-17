@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/LivingroomLevel.unity
     guid: b8890f1ead2869e4dba6c110dea901fb
   - enabled: 1
+    path: Assets/Scenes/YouWin.unity
+    guid: 371e6b99b386743b8b724e9ea97bdc0d
+  - enabled: 1
     path: Assets/Scenes/Levels/BathroomLevel.unity
     guid: e40a66075a358164da9abeb9d787e4da
   - enabled: 1
