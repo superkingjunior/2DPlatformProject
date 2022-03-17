@@ -48,8 +48,14 @@ public class exitLevel : MonoBehaviour
 
             if (scene.name == "ClosetLevel")
             {
+                SceneManager.LoadScene("PlayroomLevel");
+            }
+
+            if (scene.name == "PlayroomLevel")
+            {
                 SceneManager.LoadScene("KitchenLevel");
             }
+
 
             if (scene.name == "KitchenLevel")
             {
