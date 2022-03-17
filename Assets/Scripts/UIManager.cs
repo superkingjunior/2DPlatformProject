@@ -24,7 +24,7 @@ public class UIManager : MonoBehaviour
         GameObject[] objs = GameObject.FindGameObjectsWithTag("UI");
 
 
-        if (objs.Length > 1)
+        if ((objs.Length > 1)&& (objs!=null))
         {
             Destroy(instance.gameObject);
         }
