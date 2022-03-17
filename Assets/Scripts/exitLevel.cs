@@ -69,6 +69,11 @@ public class exitLevel : MonoBehaviour
 
             if (scene.name == "LoftLevel")
             {
+                SceneManager.LoadScene("DiningroomLevel");
+            }
+
+            if (scene.name == "DiningroomLevel")
+            {
                 SceneManager.LoadScene("OutsideLevel");
             }
 

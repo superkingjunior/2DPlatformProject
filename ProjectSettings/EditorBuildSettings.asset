@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/YouWin.unity
     guid: 371e6b99b386743b8b724e9ea97bdc0d
   - enabled: 1
+    path: Assets/Scenes/Levels/DiningroomLevel.unity
+    guid: 6cda2c547316c40c7808b753415604f0
+  - enabled: 1
     path: Assets/Scenes/Levels/BathroomLevel.unity
     guid: e40a66075a358164da9abeb9d787e4da
   - enabled: 1
