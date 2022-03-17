@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class exitLevel : MonoBehaviour
 {
-    [SerializeField] string nextLevel;
+    //[SerializeField] string nextLevel;
 
 
     // Start is called before the first frame update

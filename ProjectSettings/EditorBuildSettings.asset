@@ -36,6 +36,12 @@ EditorBuildSettings:
     path: Assets/Scenes/GameOver.unity
     guid: 49e8f91af1dfa4830b3c0b2e1741ffbc
   - enabled: 1
+    path: Assets/Scenes/Levels/OutsideLevel.unity
+    guid: 0d39c49debea14a7a8c90e00761e73b8
+  - enabled: 1
+    path: Assets/Scenes/Levels/Rooftop2Level.unity
+    guid: 0b3f99124ae8d46e28c91d1317a98b1d
+  - enabled: 1
     path: Assets/Scenes/Levels/BoilerRoomLevel.unity
     guid: efe51f5094358864b8bd781156e7c704
   m_configObjects: {}
