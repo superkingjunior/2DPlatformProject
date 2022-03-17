@@ -15,9 +15,24 @@ public class UIManager : MonoBehaviour
 
     private static float percentage = 1f;
 
+    public static int livesUI = 9;
+
     void Awake()
     {
         instance = this;
+
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("UI");
+
+
+        if (objs.Length > 1)
+        {
+            Destroy(instance.gameObject);
+        }
+
+
+
+        DontDestroyOnLoad(instance.gameObject);
+
     }
 
     private void Update()

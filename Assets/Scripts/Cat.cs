@@ -19,7 +19,7 @@ public class Cat : MonoBehaviour
     public Sprite[] attack;
     private bool attacking = false;
 
-    public int lives = 9;
+    //public int lives = 9;
 
     private bool hit = false;
 
@@ -181,20 +181,20 @@ public class Cat : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if ((collision.gameObject.CompareTag("Dog")|| collision.gameObject.CompareTag("FallingObject")) && (!hit))
+        if ((collision.gameObject.CompareTag("Dog")|| collision.gameObject.CompareTag("FallingObject") || collision.gameObject.CompareTag("Water")) && (!hit))
         {
-            lives--;
+            UIManager.livesUI--;
 
             hit = true;
             StopAllCoroutines();
             controller.isFrozen = true;
                 
-            if (lives > 0)
+            if (UIManager.livesUI > 0)
             {
-                UIManager.UpdateLives(lives);
+                UIManager.UpdateLives(UIManager.livesUI);
                 StartCoroutine(AnimateFall());
             }
-            if (lives <= 0)
+            if (UIManager.livesUI <= 0)
             {
                 StartCoroutine(AnimateDeath());
             }
@@ -205,16 +205,16 @@ public class Cat : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Heart") && lives < 9)
+        if (collision.gameObject.CompareTag("Heart") && UIManager.livesUI < 9)
         {
-            lives++;
-            UIManager.UpdateLives(lives);
+            UIManager.livesUI++;
+            UIManager.UpdateLives(UIManager.livesUI);
             Destroy(collision.gameObject);
         }
-        if (collision.gameObject.CompareTag("Water") && lives < 9)
+        if (collision.gameObject.CompareTag("Water") && UIManager.livesUI < 9)
         {
-            lives--;
-            UIManager.UpdateLives(lives);
+            UIManager.livesUI--;
+            UIManager.UpdateLives(UIManager.livesUI);
         }
     }
 
