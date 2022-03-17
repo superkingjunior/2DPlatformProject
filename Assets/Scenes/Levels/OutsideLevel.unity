@@ -2019,11 +2019,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1730770310703733294, guid: 0db09ee9c7bb84421aca4ab7df3891cc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.72
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1730770310703733294, guid: 0db09ee9c7bb84421aca4ab7df3891cc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -13.34
+      value: -11
       objectReference: {fileID: 0}
     - target: {fileID: 1730770310703733294, guid: 0db09ee9c7bb84421aca4ab7df3891cc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2064,6 +2064,10 @@ PrefabInstance:
     - target: {fileID: 1730770310703733296, guid: 0db09ee9c7bb84421aca4ab7df3891cc, type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1730770310703733297, guid: 0db09ee9c7bb84421aca4ab7df3891cc, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3997041515692554323, guid: 0db09ee9c7bb84421aca4ab7df3891cc, type: 3}
       propertyPath: m_IsTrigger
