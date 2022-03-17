@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ExitLevel : MonoBehaviour
+public class exitLevel : MonoBehaviour
 {
     [SerializeField] string nextLevel;
 
@@ -11,7 +11,7 @@ public class ExitLevel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //SceneManager.LoadScene(Scenes[index]);
+        
     }
 
     // Update is called once per frame
@@ -24,10 +24,42 @@ public class ExitLevel : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene(nextLevel);
+            Scene scene = SceneManager.GetActiveScene();
+            
+            if (scene.name == "Tutorial")
+            {
+                SceneManager.LoadScene("MainMenu");
+            }
 
-            index++;
+            if (scene.name == "BedroomLevel")
+            {
+                SceneManager.LoadScene("BathroomLevel");
+            }
 
+            if (scene.name == "BathroomLevel")
+            {
+                SceneManager.LoadScene("BoilerRoomLevel");
+            }
+
+            if (scene.name == "BoilerRoomLevel")
+            {
+                SceneManager.LoadScene("ClosetLevel");
+            }
+
+            if (scene.name == "ClosetLevel")
+            {
+                SceneManager.LoadScene("KitchenLevel");
+            }
+
+            if (scene.name == "KitchenLevel")
+            {
+                SceneManager.LoadScene("LivingroomLevel");
+            }
+
+            if (scene.name == "LivingroomLevel")
+            {
+                SceneManager.LoadScene("LoftLevel");
+            }
         }
 
     }

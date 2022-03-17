@@ -17,4 +17,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/LoftLevel.unity
     guid: 055f63df734fe44a0b3628a0845336e3
+  - enabled: 1
+    path: Assets/Scenes/Levels/ClosetLevel.unity
+    guid: cb5e71660e9b63248939cecdae31b123
+  - enabled: 1
+    path: Assets/Scenes/Levels/Tutorial.unity
+    guid: a9ddaced7b30f45bd80f55ff1aec2feb
+  - enabled: 1
+    path: Assets/Scenes/Levels/LivingroomLevel.unity
+    guid: b8890f1ead2869e4dba6c110dea901fb
+  - enabled: 1
+    path: Assets/Scenes/Levels/BathroomLevel.unity
+    guid: e40a66075a358164da9abeb9d787e4da
+  - enabled: 1
+    path: Assets/Scenes/Levels/KitchenLevel.unity
+    guid: 739cee42533c70f4f863ceb7775f3b46
+  - enabled: 1
+    path: Assets/Scenes/Levels/BoilerRoomLevel.unity
+    guid: efe51f5094358864b8bd781156e7c704
   m_configObjects: {}
