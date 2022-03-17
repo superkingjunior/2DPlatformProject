@@ -8,9 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
-    path: Assets/Scenes/Juliet.unity
-    guid: c5575bfcf9d513a48aa549adb8a46ff3
   - enabled: 1
     path: Assets/Scenes/Levels/BedroomLevel.unity
     guid: 699d21046c1d3c74fb71d669f558e2cc
@@ -50,4 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/BoilerRoomLevel.unity
     guid: efe51f5094358864b8bd781156e7c704
+  - enabled: 1
+    path: Assets/Scenes/Levels/PlayroomLevel.unity
+    guid: 3ed457e8fd3214f7f90788dbb520bc9a
   m_configObjects: {}

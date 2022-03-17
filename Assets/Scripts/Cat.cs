@@ -55,17 +55,13 @@ public class Cat : MonoBehaviour
                 if (!dog.hit)
                 {
                     dog.lives--;
-                    dog.hit = true;
-                    dog.StopAllCoroutines();
                     dog.SetColor(Color.white);
                     if (dog.lives > 0 && dog != null)
                     {
                         StartCoroutine(dog.AnimateFall());
-                        dog.hit = false;
                     }
                     else if (dog != null)
                     {
-                        //dog.StopAllCoroutines();
                         StartCoroutine(dog.AnimateDeath());
                     }
                 }
@@ -175,7 +171,6 @@ public class Cat : MonoBehaviour
         }
         mySpriteRenderer.color = Color.white;
         hit = false;
-        run = true;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -186,7 +181,7 @@ public class Cat : MonoBehaviour
             UIManager.livesUI--;
 
             hit = true;
-            StopAllCoroutines();
+            run = false;
             controller.isFrozen = true;
                 
             if (UIManager.livesUI > 0)

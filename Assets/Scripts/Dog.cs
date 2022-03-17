@@ -27,64 +27,63 @@ public class Dog : MonoBehaviour
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         reset = timer;
         myRb2D.velocity = velocity;
-        
+        StartCoroutine(Animate());
     }
 
 
     private void Update()
     {
+        timer -= Time.deltaTime;
         if (!hit)
         {
-            StartCoroutine(Animate());
-        }
+            if (mySpriteRenderer.flipX)
+            {
+                this.transform.Translate(Vector3.left * Time.deltaTime * speed);
+            }
+            else
+            {
+                this.transform.Translate(Vector3.right * Time.deltaTime * speed);
+            }
+            if (timer <= 0)
+            {
+                timer = reset;
 
+                mySpriteRenderer.flipX = !mySpriteRenderer.flipX;
+
+            }
+        }
+        else
+        {
+
+        }
         
     }
 
 
     public IEnumerator Animate()
     {
-        timer -= Time.deltaTime;
-        if (mySpriteRenderer.sprite == spriteRight)
+        while (!hit)
         {
-            mySpriteRenderer.sprite = spriteRight2;
-        }
-        else
-        {
-            mySpriteRenderer.sprite = spriteRight;
-        }
-
-        if (timer <= 0)
-        {
-            timer = reset;
-            
-            if (mySpriteRenderer.flipX)
+            if (mySpriteRenderer.sprite == spriteRight)
             {
-                mySpriteRenderer.flipX = false;
+                mySpriteRenderer.sprite = spriteRight2;
+            }
+            else if(mySpriteRenderer == spriteRight2)
+            {
+                mySpriteRenderer.sprite = spriteRight;
             }
             else
             {
-                mySpriteRenderer.flipX = true;
+                mySpriteRenderer.sprite = spriteRight;
             }
-
+            yield return new WaitForSeconds(0.1f);
         }
-
-        if (mySpriteRenderer.flipX)
-        {
-            this.transform.Translate(Vector3.left * Time.deltaTime * speed);
-        }
-        else
-        {
-            this.transform.Translate(Vector3.right * Time.deltaTime * speed);
-        }
-        yield return new WaitForSeconds(0.1f);
-
     }
 
     public IEnumerator AnimateFall()
     {
+        hit = true;
         mySpriteRenderer.sprite = hurt;
-        StartCoroutine(Animate());
         for (int i = 0; i < 15; i++)
         {
             if (i % 2 == 0)
@@ -98,7 +97,8 @@ public class Dog : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
         mySpriteRenderer.color = Color.white;
-
+        hit = false;
+        StartCoroutine(Animate());
     }
 
     public void SetColor(Color color)
@@ -108,6 +108,7 @@ public class Dog : MonoBehaviour
 
     public IEnumerator AnimateDeath()
     {
+        hit = true;
         mySpriteRenderer.sprite = dead;
         yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
