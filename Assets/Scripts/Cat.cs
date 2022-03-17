@@ -42,8 +42,9 @@ public class Cat : MonoBehaviour
     void Update()
     {
         Vector2 direction = (mySpriteRenderer.flipX) ? Vector2.left : Vector2.right;
-        RaycastHit2D attack = Physics2D.Raycast(transform.position, direction, 2f, 1 << LayerMask.NameToLayer("Dog"));
-        //Debug.DrawRay(transform.position, Vector2.right * 1f, Color.red);
+        RaycastHit2D attack = Physics2D.Raycast(transform.position, direction, 3f, 1 << LayerMask.NameToLayer("Dog"));
+        //Debug.DrawRay(transform.position, Vector2.right * 3f, Color.red);
+        //Debug.DrawRay(transform.position, Vector2.right * -3f, Color.red);
         if (Input.GetKeyDown(KeyCode.E) && cooldown > cooldownTime && !hit)
         {
             cooldown = 0f;
