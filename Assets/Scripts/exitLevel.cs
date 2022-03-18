@@ -56,7 +56,6 @@ public class exitLevel : MonoBehaviour
                 SceneManager.LoadScene("LivingroomLevel");
             }
 
-
             if (scene.name == "LivingroomLevel")
             {
                 SceneManager.LoadScene("DiningroomLevel");
