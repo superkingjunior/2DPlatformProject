@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class gameOver : MonoBehaviour
+public class GameOver : MonoBehaviour
 {
     public GameObject loseMenu;
 

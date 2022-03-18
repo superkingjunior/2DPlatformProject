@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class exitLevel : MonoBehaviour
+public class ExitLevel : MonoBehaviour
 {
     //[SerializeField] string nextLevel;
 
