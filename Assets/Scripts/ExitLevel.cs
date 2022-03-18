@@ -31,12 +31,12 @@ public class ExitLevel : MonoBehaviour
                 SceneManager.LoadScene("MainMenu");
             }
 
-            if (scene.name == "BathroomLevel")
+            if (scene.name == "ClosetLevel")
             {
-                SceneManager.LoadScene("ClosetLevel");
+                SceneManager.LoadScene("BathroomLevel");
             }
 
-            if (scene.name == "ClosetLevel")
+            if (scene.name == "BathroomLevel")
             {
                 SceneManager.LoadScene("BedroomLevel");
             }
