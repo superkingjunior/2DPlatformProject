@@ -20,19 +20,19 @@ public class MainMenuController : MonoBehaviour
     }
 
 
-
+    //Starts the first level
     public void StartGame()
     {
         SceneManager.LoadScene("ClosetLevel");
     }
-
+    //Starts the tutorial
     public void Tutorial()
     {
         mainMenu.SetActive(false);
         SceneManager.LoadScene("Tutorial");
     }
 
-
+    //Quits
     public void ExitGame()
     {
         Application.Quit();

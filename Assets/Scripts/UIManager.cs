@@ -61,15 +61,16 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    //Easing function for the cooldown bar
     private static float EaseInOutQuart(float x) {
         return (x < 0.5) ? (8 * x* x* x* x) : (1 - Mathf.Pow(-2 * x + 2, 4) / 2);
     }
 
+    //Changes the lives
     private void LivesChange(int lives)
     {
         if (lives <= 0)
         {
-            Debug.Log("LOSE");
             Lose();
         }
         else if ( _livesSprites.Length > lives - 1)

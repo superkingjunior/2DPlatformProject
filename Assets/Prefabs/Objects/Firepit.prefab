@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1730770310703733297}
   - component: {fileID: 3997041515692554323}
   m_Layer: 0
-  m_Name: firpit
+  m_Name: Firepit
   m_TagString: Climbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

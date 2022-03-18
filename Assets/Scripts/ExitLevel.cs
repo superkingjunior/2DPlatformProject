@@ -20,6 +20,7 @@ public class ExitLevel : MonoBehaviour
 
     }
 
+    //This was used to decide stage order
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))

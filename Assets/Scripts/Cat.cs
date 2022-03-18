@@ -6,7 +6,6 @@ public class Cat : MonoBehaviour
 {
 
     private Rigidbody2D myRb2D;
-    //public float velocity;
     private SpriteRenderer mySpriteRenderer;
     public Sprite spriteUp;
     public Sprite spriteRight;
@@ -18,8 +17,6 @@ public class Cat : MonoBehaviour
 
     public Sprite[] attack;
     private bool attacking = false;
-
-    //public int lives = 9;
 
     private bool hit = false;
 
@@ -43,8 +40,6 @@ public class Cat : MonoBehaviour
     {
         Vector2 direction = (mySpriteRenderer.flipX) ? Vector2.left : Vector2.right;
         RaycastHit2D attack = Physics2D.Raycast(transform.position, direction, 3f, 1 << LayerMask.NameToLayer("Dog"));
-        //Debug.DrawRay(transform.position, Vector2.right * 3f, Color.red);
-        //Debug.DrawRay(transform.position, Vector2.right * -3f, Color.red);
         if (Input.GetKeyDown(KeyCode.E) && cooldown > cooldownTime && !hit)
         {
             cooldown = 0f;
@@ -72,6 +67,7 @@ public class Cat : MonoBehaviour
 
     }
 
+    //Animates the walking of the cat
     private IEnumerator Animate()
     {
         mySpriteRenderer.sprite = idle;
@@ -115,7 +111,6 @@ public class Cat : MonoBehaviour
                 transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipX = false;
                 if (mySpriteRenderer.sprite == idle || mySpriteRenderer.sprite == spriteRight2)
                 {
-                    //Debug.Log("Moving Right");
                     mySpriteRenderer.sprite = spriteRight;
                 }
                 else
@@ -144,6 +139,7 @@ public class Cat : MonoBehaviour
         }
     }
 
+    //Animate Cat Death
     private IEnumerator AnimateDeath()
     {
         mySpriteRenderer.sprite = dead;
@@ -151,6 +147,7 @@ public class Cat : MonoBehaviour
         Destroy(gameObject);
     }
 
+    //Animate Cat Fall
     private IEnumerator AnimateFall()
     {
         mySpriteRenderer.sprite = hurt;

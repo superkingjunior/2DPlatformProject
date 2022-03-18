@@ -59,7 +59,7 @@ public class Dog : MonoBehaviour
         
     }
 
-
+    //Animates the dog walking
     public IEnumerator Animate()
     {
         while (!hit)
@@ -80,6 +80,7 @@ public class Dog : MonoBehaviour
         }
     }
 
+    //Animates the Dog falling
     public IEnumerator AnimateFall()
     {
         hit = true;
@@ -101,18 +102,19 @@ public class Dog : MonoBehaviour
         StartCoroutine(Animate());
     }
 
+    //Allows the dog's color to be changed remotely
     public void SetColor(Color color)
     {
         mySpriteRenderer.color = color;
     }
 
+    //Animate's dog's death
     public IEnumerator AnimateDeath()
     {
         hit = true;
         mySpriteRenderer.sprite = dead;
         yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
-        //StopAllCoroutines();
     }
 
 
