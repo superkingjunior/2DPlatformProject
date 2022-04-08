@@ -7,18 +7,32 @@ public class MainMenuController : MonoBehaviour
 {
     public GameObject mainMenu;
 
-    public void StartGame()
+
+    private void Start()
     {
-        SceneManager.LoadScene("BedroomLevel");
+        GameObject objs = GameObject.FindGameObjectWithTag("UI");
+        if (objs != null)
+        {
+            Destroy(objs);
+        }
+
+        UIManager.livesUI = 9;
     }
 
+
+    //Starts the first level
+    public void StartGame()
+    {
+        SceneManager.LoadScene("ClosetLevel");
+    }
+    //Starts the tutorial
     public void Tutorial()
     {
         mainMenu.SetActive(false);
         SceneManager.LoadScene("Tutorial");
     }
 
-
+    //Quits
     public void ExitGame()
     {
         Application.Quit();

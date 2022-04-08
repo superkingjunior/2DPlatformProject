@@ -57,20 +57,19 @@ public class PlayerController : MonoBehaviour
         if (launching)
         {
             vel.y = launchSpeed;
-            //Debug.Log("LAUNCH!");
             launching = false;
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && (grounded || climbing))
         {
             vel.y += jumpSpeed / (climbing ? 2.5f : 1);
-            //vel.y += jumpSpeed;
         }
 
         rb2d.velocity = vel;
         
     }
 
+    //Checks if cat is on the ground
     private void UpdateGrounding()
     {
         Vector3 origin = capCollide.transform.position;
@@ -93,8 +92,16 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.CompareTag("Water"))
         {
-            Scene current = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(current.name);
+            if (UIManager.livesUI <= 0)
+            {
+                SceneManager.LoadScene("GameOver");
+            }
+            else
+            {
+                Scene current = SceneManager.GetActiveScene();
+                SceneManager.LoadScene(current.name);
+            }
+            
         }
     }
 

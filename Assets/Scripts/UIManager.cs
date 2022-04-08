@@ -15,9 +15,28 @@ public class UIManager : MonoBehaviour
 
     private static float percentage = 1f;
 
+    public static int livesUI = 9;
+
+    
+
     void Awake()
     {
-        instance = this;
+
+        if ((instance != null) && (instance != this))
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this;
+            if (livesUI > 0)
+            {
+                _livesImg.sprite = _livesSprites[livesUI - 1];
+            }
+            
+        }
+        
+
     }
 
     private void Update()
@@ -38,19 +57,25 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            percentage = cooldown / cooldownTime;
+            percentage = EaseInOutQuart(cooldown / cooldownTime);
         }
     }
 
+    //Easing function for the cooldown bar
+    private static float EaseInOutQuart(float x) {
+        return (x < 0.5) ? (8 * x* x* x* x) : (1 - Mathf.Pow(-2 * x + 2, 4) / 2);
+    }
+
+    //Changes the lives
     private void LivesChange(int lives)
-    { 
-        if( _livesSprites.Length > lives - 1)
-            _livesImg.sprite = _livesSprites[lives - 1];
-        if(lives<= 0)
+    {
+        if (lives <= 0)
         {
-            Debug.Log("LOSE");
             Lose();
         }
+        else if ( _livesSprites.Length > lives - 1)
+            _livesImg.sprite = _livesSprites[lives - 1];
+        
     }
 
     private void Lose()

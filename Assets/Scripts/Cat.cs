@@ -6,7 +6,6 @@ public class Cat : MonoBehaviour
 {
 
     private Rigidbody2D myRb2D;
-    //public float velocity;
     private SpriteRenderer mySpriteRenderer;
     public Sprite spriteUp;
     public Sprite spriteRight;
@@ -18,8 +17,6 @@ public class Cat : MonoBehaviour
 
     public Sprite[] attack;
     private bool attacking = false;
-
-    public int lives = 9;
 
     private bool hit = false;
 
@@ -42,8 +39,7 @@ public class Cat : MonoBehaviour
     void Update()
     {
         Vector2 direction = (mySpriteRenderer.flipX) ? Vector2.left : Vector2.right;
-        RaycastHit2D attack = Physics2D.Raycast(transform.position, direction, 2f, 1 << LayerMask.NameToLayer("Dog"));
-        //Debug.DrawRay(transform.position, Vector2.right * 1f, Color.red);
+        RaycastHit2D attack = Physics2D.Raycast(transform.position, direction, 3f, 1 << LayerMask.NameToLayer("Dog"));
         if (Input.GetKeyDown(KeyCode.E) && cooldown > cooldownTime && !hit)
         {
             cooldown = 0f;
@@ -54,17 +50,13 @@ public class Cat : MonoBehaviour
                 if (!dog.hit)
                 {
                     dog.lives--;
-                    dog.hit = true;
-                    dog.StopAllCoroutines();
                     dog.SetColor(Color.white);
                     if (dog.lives > 0 && dog != null)
                     {
                         StartCoroutine(dog.AnimateFall());
-                        dog.hit = false;
                     }
                     else if (dog != null)
                     {
-                        //dog.StopAllCoroutines();
                         StartCoroutine(dog.AnimateDeath());
                     }
                 }
@@ -75,6 +67,7 @@ public class Cat : MonoBehaviour
 
     }
 
+    //Animates the walking of the cat
     private IEnumerator Animate()
     {
         mySpriteRenderer.sprite = idle;
@@ -118,7 +111,6 @@ public class Cat : MonoBehaviour
                 transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipX = false;
                 if (mySpriteRenderer.sprite == idle || mySpriteRenderer.sprite == spriteRight2)
                 {
-                    //Debug.Log("Moving Right");
                     mySpriteRenderer.sprite = spriteRight;
                 }
                 else
@@ -147,6 +139,7 @@ public class Cat : MonoBehaviour
         }
     }
 
+    //Animate Cat Death
     private IEnumerator AnimateDeath()
     {
         mySpriteRenderer.sprite = dead;
@@ -154,6 +147,7 @@ public class Cat : MonoBehaviour
         Destroy(gameObject);
     }
 
+    //Animate Cat Fall
     private IEnumerator AnimateFall()
     {
         mySpriteRenderer.sprite = hurt;
@@ -174,27 +168,27 @@ public class Cat : MonoBehaviour
         }
         mySpriteRenderer.color = Color.white;
         hit = false;
-        run = true;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if ((collision.gameObject.CompareTag("Dog")|| collision.gameObject.CompareTag("FallingObject")) && (!hit))
+        if (((collision.gameObject.CompareTag("Dog") && !collision.gameObject.GetComponent<Dog>().hit) || collision.gameObject.CompareTag("FallingObject") || collision.gameObject.CompareTag("Water")) && (!hit))
         {
-            lives--;
+            UIManager.livesUI--;
 
             hit = true;
-            StopAllCoroutines();
+            run = false;
             controller.isFrozen = true;
                 
-            if (lives > 0)
+            if (UIManager.livesUI > 0)
             {
-                UIManager.UpdateLives(lives);
+                UIManager.UpdateLives(UIManager.livesUI);
                 StartCoroutine(AnimateFall());
             }
-            if (lives <= 0)
+            if (UIManager.livesUI <= 0)
             {
+                UIManager.UpdateLives(UIManager.livesUI);
                 StartCoroutine(AnimateDeath());
             }
                 
@@ -204,16 +198,16 @@ public class Cat : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Heart") && lives < 9)
+        if (collision.gameObject.CompareTag("Heart") && UIManager.livesUI < 9)
         {
-            lives++;
-            UIManager.UpdateLives(lives);
+            UIManager.livesUI++;
+            UIManager.UpdateLives(UIManager.livesUI);
             Destroy(collision.gameObject);
         }
-        if (collision.gameObject.CompareTag("Water") && lives < 9)
+        if (collision.gameObject.CompareTag("Water"))
         {
-            lives--;
-            UIManager.UpdateLives(lives);
+            UIManager.livesUI--;
+            UIManager.UpdateLives(UIManager.livesUI);
         }
     }
 

@@ -27,64 +27,64 @@ public class Dog : MonoBehaviour
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         reset = timer;
         myRb2D.velocity = velocity;
-        
+        StartCoroutine(Animate());
     }
 
 
     private void Update()
     {
+        timer -= Time.deltaTime;
         if (!hit)
         {
-            StartCoroutine(Animate());
-        }
-
-        
-    }
-
-
-    public IEnumerator Animate()
-    {
-        timer -= Time.deltaTime;
-        if (mySpriteRenderer.sprite == spriteRight)
-        {
-            mySpriteRenderer.sprite = spriteRight2;
-        }
-        else
-        {
-            mySpriteRenderer.sprite = spriteRight;
-        }
-
-        if (timer <= 0)
-        {
-            timer = reset;
-            
             if (mySpriteRenderer.flipX)
             {
-                mySpriteRenderer.flipX = false;
+                this.transform.Translate(Vector3.left * Time.deltaTime * speed);
             }
             else
             {
-                mySpriteRenderer.flipX = true;
+                this.transform.Translate(Vector3.right * Time.deltaTime * speed);
             }
+            if (timer <= 0)
+            {
+                timer = reset;
 
-        }
+                mySpriteRenderer.flipX = !mySpriteRenderer.flipX;
 
-        if (mySpriteRenderer.flipX)
-        {
-            this.transform.Translate(Vector3.left * Time.deltaTime * speed);
+            }
         }
         else
         {
-            this.transform.Translate(Vector3.right * Time.deltaTime * speed);
-        }
-        yield return new WaitForSeconds(0.1f);
 
+        }
+        
     }
 
+    //Animates the dog walking
+    public IEnumerator Animate()
+    {
+        while (!hit)
+        {
+            if (mySpriteRenderer.sprite == spriteRight)
+            {
+                mySpriteRenderer.sprite = spriteRight2;
+            }
+            else if(mySpriteRenderer == spriteRight2)
+            {
+                mySpriteRenderer.sprite = spriteRight;
+            }
+            else
+            {
+                mySpriteRenderer.sprite = spriteRight;
+            }
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    //Animates the Dog falling
     public IEnumerator AnimateFall()
     {
+        hit = true;
         mySpriteRenderer.sprite = hurt;
-        StartCoroutine(Animate());
         for (int i = 0; i < 15; i++)
         {
             if (i % 2 == 0)
@@ -98,20 +98,23 @@ public class Dog : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
         mySpriteRenderer.color = Color.white;
-
+        hit = false;
+        StartCoroutine(Animate());
     }
 
+    //Allows the dog's color to be changed remotely
     public void SetColor(Color color)
     {
         mySpriteRenderer.color = color;
     }
 
+    //Animate's dog's death
     public IEnumerator AnimateDeath()
     {
+        hit = true;
         mySpriteRenderer.sprite = dead;
         yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
-        //StopAllCoroutines();
     }
 
 

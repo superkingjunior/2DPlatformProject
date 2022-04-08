@@ -25,6 +25,7 @@ public class CollisionPlatform : MonoBehaviour
         }
     }
 
+    //Lets the cat jump down from a platform
     IEnumerator JumpDown()
     {
         Edge.rotationalOffset = 0;
